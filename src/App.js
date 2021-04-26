@@ -1,5 +1,6 @@
 import './logo.svg';
 import './App.css';
+import PropTypes from "prop-types";
 
 const item = {
   brand: 'Tiger of Sweden',
@@ -10,7 +11,8 @@ const item = {
   currency: '£'
 }
 
-function ShopItemFunc({item}) {
+function ShopItemFunc(props) {
+  const {item} = props;
   return (
     <div className="main-content">
       <h2>{item.brand}</h2>
@@ -31,6 +33,9 @@ function ShopItemFunc({item}) {
   )
 }
 
+ShopItemFunc.propTypes = {
+  item: PropTypes.instanceOf(item).isRequired
+}
 
 function App() {
   return (
